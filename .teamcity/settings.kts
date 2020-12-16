@@ -76,7 +76,7 @@ object id02Firefox : BuildType({
     templates(Template_1)
     id("02Firefox")
     name = "02. Firefox"
-
+    description = "this is the descriptions"
     params {
         param("Browser", "Firefox")
     }
