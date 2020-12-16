@@ -32,6 +32,7 @@ project {
     vcsRoot(HttpsGithubComG0t4teamcityCourseCards)
 
     buildType(id03DeployToStaging)
+    buildType(id02IE)
     buildType(id02Chrome)
     buildType(id02Firefox)
     buildType(id01FastTests)
@@ -87,6 +88,21 @@ object id02Firefox : BuildType({
     }
 })
 
+object id02IE : BuildType({
+    templates(Template_1)
+    id("02IE")
+    name = "02. IE"
+    description = "this is the description for IE"
+    params {
+        param("Browser", "IE")
+    }
+
+    dependencies {
+        snapshot(id01FastTests) {
+        }
+    }
+})
+
 object id03DeployToStaging : BuildType({
     id("03DeployToStaging")
     name = "03. Deploy To Staging"
@@ -99,6 +115,8 @@ object id03DeployToStaging : BuildType({
         snapshot(id02Chrome) {
         }
         snapshot(id02Firefox) {
+        }
+        snapshot(id02IE) {
         }
     }
 })
